@@ -1,0 +1,65 @@
+SELECT movies.movieid, movies.title, movies.genres
+FROM movies
+JOIN links ON movies.movieid = links.movieid
+GROUP BY movies.movieid, movies.title, movies.genres, links.imdbid
+HAVING links.imdbid = 0068646;
+
+INSERT INTO actors(name, character_name, date_of_birth, movieid)
+VALUES  ('Vin Diesel', 'Dominic Toretto', '07-18-1967','102716'),
+        ('Paul Walker', 'Brian O''conner', '09-12-1973', '102716'),
+        ('Dwayne Johnson', 'Hobbs', '05-02-1972', '102716'),
+        ('Jordana Brewster', 'Mia', '04-26-1980', '102716'),
+        ('Michelle Rodriguez', 'Letty', '07-12-1978', '102716'),
+        ('Tyrese Gibson', 'Roman', '12-30-1978', '102716'),
+        ('Sung Kang', 'Han', '04-08-1972', '102716'),
+        ('Gal Gadot', 'Gisele', '04-30-1985', '102716'),
+        ('Ludacris', 'Tej', '09-11-1977', '102716'),
+        ('Luke Evans', 'Shaw', '04-15-1979', '102716');
+
+SELECT *
+FROM actors
+WHERE actors.movieid = '102716';
+
+INSERT INTO actors(name, character_name, date_of_birth, movieid)
+VALUES  ('Robert Downey Jr.', 'Tony Stark', '07-18-1966','89745'),
+        ('Chris Evans', 'Steve Rodgers/Captain America', '09-12-1976', '89745'),
+        ('Mark Ruffalo', 'Bruce Banner/The Hulk', '05-02-1976', '89745'),
+        ('Chris Hemsworth', 'Thor', '04-26-1986', '89745'),
+        ('Scarlett Johansson', 'Natasha Romanoff/Black Widow', '07-12-1976', '89745'),
+        ('Jemery Renner', 'Clint Barton/Hawkeye', '12-30-1976', '89745'),
+        ('Tom Hiddleston', 'Loki', '04-08-1976', '89745'),
+        ('Clark Gregg', 'Agent Coulson', '04-30-1987', '89745'),
+        ('Cobie Smulders', 'Agent Hill', '09-11-1987', '89745'),
+        ('Stellan Skarsgård', 'Dr. Erik Selvig', '04-15-1980', '89745');
+
+SELECT *
+FROM actors
+WHERE actors.movieid = '89745';
+
+INSERT INTO actors(name, character_name, date_of_birth, movieid)
+VALUES  ('Marlon Brando', 'Don Vito Corleone', '04-03-1924', '858'),
+        ('Al Pacino', 'Michael Corleone', '04-25-1940', '858'),
+        ('James Caan', 'Sonny Corleone', '03-26-1940', '858'),
+        ('Richard S. Castellano', 'Clemenza', '09-04-1933', '858'),
+        ('Robert Duvall', 'Tom Hagen', '01-05-1931', '858'),
+        ('Sterling Hayden', 'Capt. McCluskey', '03-26-1916', '858'),
+        ('John Marley', 'Jack Woltz', '10-17-1907', '858'),
+        ('Richard Conte', 'Barzini', '03-24-1910', '858'),
+        ('Al Lettieri', 'Sollozzo', '02-24-1928', '858'),
+        ('Diane Keaton', 'Kay Adams', '01-05-1946', '858');
+
+SELECT *
+FROM actors
+WHERE actors.movieid = '858';
+
+UPDATE movies
+SET mpaa_rating = 'PG-13'
+WHERE movies.movieid = '102716';
+
+UPDATE movies
+SET mpaa_rating = 'PG-13'
+WHERE movies.movieid = '89745';
+
+UPDATE movies
+SET mpaa_rating = 'R'
+WHERE movies.movieid = '858';
